@@ -74,7 +74,7 @@ export const staggerFast: Variants = {
 }
 
 // Image zoom on hover
-export const imageZoom = {
+export const imageZoom: Variants = {
   rest: { scale: 1 },
   hover: {
     scale: 1.08,
@@ -83,7 +83,7 @@ export const imageZoom = {
 }
 
 // Card lift on hover
-export const cardLift = {
+export const cardLift: Variants = {
   rest: { y: 0, boxShadow: '0 8px 32px rgba(217, 122, 152, 0.08)' },
   hover: {
     y: -8,
@@ -93,7 +93,7 @@ export const cardLift = {
 }
 
 // Overlay reveal on hover
-export const overlayReveal = {
+export const overlayReveal: Variants = {
   rest: { opacity: 0 },
   hover: {
     opacity: 1,
@@ -102,7 +102,7 @@ export const overlayReveal = {
 }
 
 // Float animation (for decorative elements)
-export const floatAnimation = {
+export const floatAnimation: Variants = {
   animate: {
     y: [0, -16, 0],
     transition: {
@@ -114,7 +114,7 @@ export const floatAnimation = {
 }
 
 // Float delayed
-export const floatDelayed = {
+export const floatDelayed: Variants = {
   animate: {
     y: [0, -12, 0],
     transition: {

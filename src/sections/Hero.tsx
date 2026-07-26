@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Sparkles } from 'lucide-react'
-import { blurReveal, fadeUp, floatAnimation, floatDelayed, staggerContainer, viewportConfig } from '../utils/animations'
+import { blurReveal, fadeUp, floatAnimation, floatDelayed, staggerContainer } from '../utils/animations'
 import heroPortrait from '../assets/hero_portrait.png'
 
 const stats = [

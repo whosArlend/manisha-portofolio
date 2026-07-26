@@ -193,17 +193,16 @@ export default function VideoShowcase() {
             viewport={viewportConfig}
             className="flex-1 grid grid-cols-3 gap-4"
           >
-            {visibleVideos.map((video, i) => (
+            {visibleVideos.map((video) => (
               <motion.div
                 key={video.id}
                 variants={fadeUp}
                 className={`relative rounded-[1.25rem] overflow-hidden cursor-pointer transition-all duration-300 ${
-                  videos.indexOf(video) === activeVideo ? 'ring-2' : ''
+                  videos.indexOf(video) === activeVideo ? 'ring-2 ring-[#D97A98]' : ''
                 }`}
                 style={{
                   background: video.gradient,
                   aspectRatio: '16/10',
-                  ringColor: 'var(--pink-accent)',
                   boxShadow: videos.indexOf(video) === activeVideo
                     ? '0 8px 32px rgba(217,122,152,0.25)'
                     : '0 4px 16px rgba(217,122,152,0.08)',
