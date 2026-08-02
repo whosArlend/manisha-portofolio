@@ -8,153 +8,91 @@ import workBeauty1 from '../assets/work_beauty1.png'
 import workLifestyle1 from '../assets/work_lifestyle1.png'
 import workFashion2 from '../assets/work_fashion2.png'
 
-const categories = ['All', 'Fashion', 'Beauty', 'Lifestyle', 'Travel']
+const categories = [
+  'All',
+  'Brand Identity',
+  'Social Media Design',
+  'Campaign Design',
+  'Editorial Design',
+  'Digital Creative',
+  'Creative Direction',
+]
 
-const works = [
+const projects = [
   {
     id: 1,
-    title: 'Silk Season Campaign',
-    brand: 'Dior Beauty',
-    category: 'Fashion',
-    image: workFashion1,
-    span: 'tall',
+    title: 'Aura Luxury Skincare',
+    category: 'Brand Identity',
+    image: workBeauty1,
   },
   {
     id: 2,
-    title: 'Morning Ritual',
-    brand: 'Tatcha',
-    category: 'Beauty',
-    image: workBeauty1,
-    span: 'wide',
+    title: 'Maison de Soie Campaign',
+    category: 'Campaign Design',
+    image: workFashion1,
   },
   {
     id: 3,
-    title: 'Sunday Sanctuary',
-    brand: 'Rhode',
-    category: 'Lifestyle',
-    image: workLifestyle1,
-    span: 'normal',
+    title: 'Lumière Editorial Lookbook',
+    category: 'Editorial Design',
+    image: workFashion2,
   },
   {
     id: 4,
-    title: 'Paris Edit',
-    brand: 'Chanel Beauty',
-    category: 'Fashion',
-    image: workFashion2,
-    span: 'tall',
+    title: 'Velvet Rose Social Suite',
+    category: 'Social Media Design',
+    image: workLifestyle1,
   },
   {
     id: 5,
-    title: 'Glow Diary',
-    brand: 'Glossier',
-    category: 'Beauty',
+    title: 'Botanique Botanical Identity',
+    category: 'Brand Identity',
     image: workBeauty1,
-    span: 'normal',
-    gradient: 'linear-gradient(135deg, #FDEEF3 0%, #F4C6D7 100%)',
   },
   {
     id: 6,
-    title: 'The Art of Stillness',
-    brand: 'NARS',
-    category: 'Lifestyle',
+    title: 'Elysian Studio Direction',
+    category: 'Creative Direction',
     image: workLifestyle1,
-    span: 'wide',
-    gradient: 'linear-gradient(135deg, #FFF5F7 0%, #FDEEF3 100%)',
   },
 ]
-
-interface WorkCardProps {
-  work: typeof works[0]
-}
-
-function WorkCard({ work }: WorkCardProps) {
-  return (
-    <motion.div
-      className="relative rounded-[1.5rem] overflow-hidden cursor-pointer group"
-      initial="rest"
-      whileHover="hover"
-      style={{
-        boxShadow: '0 8px 32px rgba(217,122,152,0.08)',
-        aspectRatio: work.span === 'tall' ? '3/4' : work.span === 'wide' ? '16/10' : '4/5',
-      }}
-    >
-      <motion.img
-        src={work.image}
-        alt={work.title}
-        className="w-full h-full object-cover"
-        variants={imageZoom}
-      />
-
-      {/* Overlay */}
-      <motion.div
-        className="absolute inset-0 flex flex-col justify-end p-6"
-        variants={overlayReveal}
-        style={{
-          background: 'linear-gradient(to top, rgba(64,54,58,0.85) 0%, rgba(64,54,58,0.3) 50%, transparent 80%)',
-        }}
-      >
-        <div>
-          <p className="text-xs tracking-widest uppercase text-white/70 mb-1">{work.brand}</p>
-          <h3 className="text-lg font-serif font-light text-white mb-3 leading-tight">{work.title}</h3>
-          <div className="flex items-center justify-between">
-            <span
-              className="text-xs px-3 py-1 rounded-full"
-              style={{ background: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.9)' }}
-            >
-              {work.category}
-            </span>
-            <motion.div
-              className="w-8 h-8 rounded-full flex items-center justify-center"
-              style={{ background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(8px)' }}
-              whileHover={{ scale: 1.1, background: 'rgba(217,122,152,0.8)' }}
-            >
-              <ArrowUpRight size={14} className="text-white" />
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  )
-}
 
 export default function FeaturedWorks() {
   const [activeCategory, setActiveCategory] = useState('All')
 
-  const filtered = activeCategory === 'All'
-    ? works
-    : works.filter((w) => w.category === activeCategory)
+  const filteredProjects = activeCategory === 'All'
+    ? projects
+    : projects.filter((p) => p.category === activeCategory)
 
   return (
     <section
       id="works"
-      className="relative py-28 lg:py-40 overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #FFF8FA 0%, #FDEEF3 100%)' }}
+      className="relative py-24 lg:py-32 overflow-hidden"
+      style={{ background: '#FDF1F4' }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+        
         {/* Header */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="text-center mb-14"
+          className="text-center mb-12"
         >
-          <div className="section-label justify-center">Featured Works</div>
+          <div className="section-label justify-center">Portfolio</div>
           <h2
-            className="heading-editorial mt-4 mb-5"
-            style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}
+            className="heading-editorial mt-3 mb-4"
+            style={{ fontSize: 'clamp(2.25rem, 4.5vw, 3.75rem)' }}
           >
-            A Visual{' '}
-            <span className="italic text-gradient">Portfolio</span>{' '}
-            <br className="hidden md:block" />
-            of Creative Excellence
+            Selected <span className="italic text-gradient">Works</span>
           </h2>
-          <p className="text-base max-w-xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-            Each project is a collaboration between brand vision and authentic storytelling.
+          <p className="text-sm max-w-md mx-auto" style={{ color: 'var(--text-secondary)' }}>
+            A collection of brand identity, editorial, and digital design projects.
           </p>
         </motion.div>
 
-        {/* Category Filter */}
+        {/* Category Filters */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -163,69 +101,103 @@ export default function FeaturedWorks() {
           className="flex flex-wrap justify-center gap-2 mb-12"
         >
           {categories.map((cat) => (
-            <motion.button
+            <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className="px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border-none cursor-pointer"
+              className="px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border-none cursor-pointer"
               style={
                 activeCategory === cat
                   ? {
                       background: 'var(--pink-accent)',
-                      color: '#fff',
-                      boxShadow: '0 8px 24px rgba(217,122,152,0.35)',
+                      color: '#ffffff',
+                      boxShadow: '0 4px 14px rgba(217,122,152,0.3)',
                     }
                   : {
-                      background: 'rgba(255,255,255,0.7)',
+                      background: '#FFFFFF',
                       color: 'var(--text-secondary)',
-                      border: '1px solid rgba(217,122,152,0.15)',
+                      border: '1px solid rgba(217,122,152,0.14)',
                     }
               }
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
             >
               {cat}
-            </motion.button>
+            </button>
           ))}
         </motion.div>
 
-        {/* Masonry Gallery */}
+        {/* Projects Clean Grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {filtered.map((work) => (
+            {filteredProjects.map((project) => (
               <motion.div
-                key={work.id}
+                key={project.id}
                 variants={fadeUp}
-                className="break-inside-avoid mb-5"
+                className="clean-card overflow-hidden group cursor-pointer"
               >
-                <WorkCard work={work} />
+                <div
+                  className="relative overflow-hidden"
+                  style={{ aspectRatio: '4/3' }}
+                >
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    variants={imageZoom}
+                    initial="rest"
+                    whileHover="hover"
+                    loading="lazy"
+                  />
+                  {/* Subtle overlay */}
+                  <motion.div
+                    variants={overlayReveal}
+                    initial="rest"
+                    whileHover="hover"
+                    className="absolute inset-0 bg-black/20 flex items-center justify-center"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
+                      <ArrowUpRight size={18} className="text-[var(--text-primary)]" />
+                    </div>
+                  </motion.div>
+                </div>
+
+                <div className="p-5 flex items-center justify-between">
+                  <div>
+                    <h3 className="font-serif font-medium text-lg mb-0.5" style={{ color: 'var(--text-primary)' }}>
+                      {project.title}
+                    </h3>
+                    <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>
+                      {project.category}
+                    </p>
+                  </div>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-[var(--pink-accent)] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                  />
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
 
-        {/* View all CTA */}
+        {/* View All Projects CTA */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="text-center mt-14"
+          className="text-center mt-12"
         >
-          <motion.button
-            className="btn-glass"
-            whileHover={{ scale: 1.04, y: -3 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            View All Works
-            <ArrowUpRight size={16} />
-          </motion.button>
+          <button className="btn-secondary text-xs py-2.5 px-6">
+            View All Projects
+            <ArrowUpRight size={14} />
+          </button>
         </motion.div>
+
       </div>
     </section>
   )
