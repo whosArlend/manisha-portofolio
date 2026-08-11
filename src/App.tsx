@@ -2,27 +2,23 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Hero from './sections/Hero'
 import About from './sections/About'
-import FeaturedWorks from './sections/FeaturedWorks'
+import Works from './sections/FeaturedWorks'
+import Experience from './sections/Experience'
+import Tools from './sections/Tools'
 import CreativeProcess from './sections/CreativeProcess'
-import Services from './sections/Services'
-import BrandCollabs from './sections/BrandCollabs'
-import Statistics from './sections/Statistics'
-import Testimonials from './sections/Testimonials'
 import Contact from './sections/Contact'
 
 export default function App() {
   return (
-    <div className="relative overflow-x-hidden" style={{ background: '#FFF9FA' }}>
+    <div className="relative overflow-x-hidden" style={{ background: '#FFFFFF' }}>
       <Navbar />
       <main>
         <Hero />
         <About />
-        <FeaturedWorks />
+        <Works />
+        <Experience />
+        <Tools />
         <CreativeProcess />
-        <Services />
-        <BrandCollabs />
-        <Statistics />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />

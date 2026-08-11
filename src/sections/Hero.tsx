@@ -1,123 +1,128 @@
 import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
-import { blurReveal, fadeUp, staggerContainer } from '../utils/animations'
+import { ArrowRight } from 'lucide-react'
+import { fadeUp, staggerContainer } from '../utils/animations'
 import heroPortrait from '../assets/hero_portrait.png'
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden"
-      style={{
-        background: 'linear-gradient(180deg, #FFF9FA 0%, #FDF1F4 100%)',
-      }}
+      style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', background: '#FFFFFF', paddingTop: '64px' }}
     >
-      {/* Single subtle soft-pink background orb */}
-      <div
-        className="gradient-orb w-[600px] h-[600px] opacity-20"
-        style={{
-          background: 'radial-gradient(circle, #F4C6D7 0%, transparent 70%)',
-          top: '10%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-        }}
-      />
+      <div className="container-main" style={{ width: '100%' }}>
+        <div className="two-col" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
 
-      <div className="max-w-4xl mx-auto px-6 lg:px-10 w-full relative z-10 text-center">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center"
-        >
-          {/* Availability badge */}
-          <motion.div variants={fadeUp} className="mb-6">
-            <span
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide"
-              style={{
-                background: '#FFFFFF',
-                color: 'var(--text-primary)',
-                border: '1px solid rgba(217, 122, 152, 0.2)',
-              }}
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              Available for selected creative projects
-            </span>
-          </motion.div>
-
-          {/* Title tag */}
-          <motion.p
-            variants={fadeUp}
-            className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
-            style={{ color: 'var(--pink-accent)' }}
-          >
-            Graphic Designer & Creative Designer
-          </motion.p>
-
-          {/* Heading */}
-          <motion.h1
-            variants={blurReveal}
-            className="heading-editorial mb-6 max-w-3xl"
-            style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)' }}
-          >
-            Designing Visuals That Make Ideas{' '}
-            <span className="italic text-gradient">Memorable.</span>
-          </motion.h1>
-
-          {/* Supporting text */}
-          <motion.p
-            variants={fadeUp}
-            className="text-base lg:text-lg leading-relaxed max-w-2xl mb-8"
-            style={{ color: 'var(--text-secondary)' }}
-          >
-            Manisha is a Graphic Designer & Creative Designer creating meaningful visual identities, 
-            creative campaigns, and impactful digital experiences.
-          </motion.p>
-
-          {/* Primary & Secondary CTAs */}
-          <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4 mb-12">
-            <button
-              className="btn-primary text-sm"
-              onClick={() => {
-                document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' })
-              }}
-            >
-              View My Work
-              <ArrowDown size={14} />
-            </button>
-            <button
-              className="btn-secondary text-sm"
-              onClick={() => {
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
-              }}
-            >
-              About Me
-            </button>
-          </motion.div>
-
-          {/* Single clean portrait visual centered */}
+          {/* Left — Typography */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
-            className="relative w-full max-w-sm"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
           >
-            <div
-              className="rounded-3xl overflow-hidden border border-[rgba(217,122,152,0.14)]"
+            <motion.p
+              variants={fadeUp}
               style={{
-                boxShadow: '0 16px 40px rgba(217, 122, 152, 0.1)',
-                aspectRatio: '4/5',
+                fontSize: '0.6875rem',
+                fontWeight: 600,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'var(--pink-accent)',
+                marginBottom: '1.25rem',
               }}
             >
+              Creative Editor · Visual Designer · PDD
+            </motion.p>
+
+            <motion.h1
+              variants={fadeUp}
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+                fontWeight: 700,
+                lineHeight: 1.05,
+                letterSpacing: '-0.02em',
+                color: 'var(--text-dark)',
+                marginBottom: '1.5rem',
+              }}
+            >
+              Hi, I'm{' '}
+              <span style={{ color: 'var(--pink-accent)' }}>Manisha.</span>
+              <br />
+              I create things{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, var(--pink-accent), var(--pink-primary))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                I love to see.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              variants={fadeUp}
+              style={{
+                fontSize: '1rem',
+                lineHeight: 1.75,
+                color: 'var(--text-secondary)',
+                maxWidth: '28rem',
+                marginBottom: '2.5rem',
+              }}
+            >
+              Creative editor and visual enthusiast who enjoys turning ideas into posters, social media content, event visuals, and memorable designs.
+            </motion.p>
+
+            <motion.div variants={fadeUp} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+              <button
+                id="hero-see-works"
+                className="btn-primary"
+                onClick={() =>
+                  document.getElementById('works')?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
+                See My Works
+                <ArrowRight size={15} />
+              </button>
+              <button
+                id="hero-about-me"
+                className="btn-outline"
+                onClick={() =>
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+                }
+              >
+                About Me
+              </button>
+            </motion.div>
+          </motion.div>
+
+          {/* Right — Portrait */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
+            style={{ position: 'relative' }}
+          >
+            {/* Soft pink blob behind image */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: '-1.5rem',
+                borderRadius: '2.5rem',
+                background: 'var(--pink-soft)',
+                opacity: 0.45,
+              }}
+            />
+            <div className="portrait-wrap" style={{ position: 'relative' }}>
               <img
                 src={heroPortrait}
-                alt="Manisha — Graphic Designer & Creative Designer"
-                className="w-full h-full object-cover"
+                alt="Manisha — Creative Editor & Visual Designer"
                 loading="eager"
               />
             </div>
           </motion.div>
-        </motion.div>
+
+        </div>
       </div>
     </section>
   )

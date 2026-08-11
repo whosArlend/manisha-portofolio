@@ -1,26 +1,26 @@
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations'
 
-const processSteps = [
+const steps = [
   {
-    step: '01',
-    title: 'Discover',
-    description: 'Understanding the brand, audience, goals, and creative direction through strategic research.',
+    num: '01',
+    title: 'Understand',
+    description: "I start by figuring out what the project needs to communicate and who it's for.",
   },
   {
-    step: '02',
-    title: 'Define',
-    description: 'Developing concepts, mood boards, visual direction, and comprehensive design strategy.',
+    num: '02',
+    title: 'Explore',
+    description: "I look for visual references, experiment with ideas, and find a direction that feels right.",
   },
   {
-    step: '03',
-    title: 'Design',
-    description: 'Transforming ideas into refined and meaningful visual work with meticulous attention to detail.',
+    num: '03',
+    title: 'Create',
+    description: "I bring the idea to life — in Canva, Photoshop, or whatever tool fits the project.",
   },
   {
-    step: '04',
-    title: 'Deliver',
-    description: 'Preparing polished design assets and brand guidelines ready for real-world application.',
+    num: '04',
+    title: 'Refine',
+    description: "I review, adjust, and polish until the output feels exactly how it should look.",
   },
 ]
 
@@ -28,62 +28,65 @@ export default function CreativeProcess() {
   return (
     <section
       id="process"
-      className="relative py-24 lg:py-32 overflow-hidden"
-      style={{ background: '#FFFFFF' }}
+      className="section-pad"
+      style={{ background: 'var(--bg-soft)' }}
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-10">
-        
+      <div className="container-main">
+
         {/* Header */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <div className="section-label justify-center">Workflow</div>
-          <h2
-            className="heading-editorial mt-3 mb-4"
-            style={{ fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)' }}
+          <p
+            className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+            style={{ color: 'var(--pink-accent)' }}
           >
-            Creative <span className="italic text-gradient">Process</span>
-          </h2>
-          <p className="text-sm max-w-md mx-auto" style={{ color: 'var(--text-secondary)' }}>
-            A structured, collaborative approach to creating memorable visual work.
+            Process
           </p>
+          <h2
+            className="font-bold leading-tight"
+            style={{
+              fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
+              color: 'var(--text-dark)',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            How I Usually Work.
+          </h2>
         </motion.div>
 
-        {/* 4 Steps Horizontal Layout */}
+        {/* Steps — typographic grid, no cards */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="four-col"
         >
-          {processSteps.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={fadeUp}
-              className="clean-card p-6 flex flex-col justify-between"
-            >
-              <div>
-                <span
-                  className="font-serif text-3xl font-light block mb-3"
-                  style={{ color: 'var(--pink-accent)' }}
-                >
-                  {item.step}
-                </span>
-                <h3
-                  className="font-serif text-xl font-medium mb-2"
-                  style={{ color: 'var(--text-primary)' }}
-                >
-                  {item.title}
-                </h3>
-                <p className="text-xs leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                  {item.description}
-                </p>
-              </div>
+          {steps.map((step) => (
+            <motion.div key={step.num} variants={fadeUp}>
+              <span
+                className="block text-4xl font-bold mb-4 leading-none"
+                style={{ color: 'var(--pink-soft)' }}
+              >
+                {step.num}
+              </span>
+              <h3
+                className="text-base font-semibold mb-2"
+                style={{ color: 'var(--text-dark)' }}
+              >
+                {step.title}
+              </h3>
+              <p
+                className="text-xs leading-relaxed"
+                style={{ color: 'var(--text-secondary)' }}
+              >
+                {step.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>

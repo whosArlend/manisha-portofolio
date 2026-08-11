@@ -1,204 +1,164 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import { fadeUp, staggerContainer, viewportConfig, imageZoom, overlayReveal } from '../utils/animations'
+import { fadeUp, staggerContainer, viewportConfig, imageZoom } from '../utils/animations'
 
 import workFashion1 from '../assets/work_fashion1.png'
 import workBeauty1 from '../assets/work_beauty1.png'
 import workLifestyle1 from '../assets/work_lifestyle1.png'
 import workFashion2 from '../assets/work_fashion2.png'
-
-const categories = [
-  'All',
-  'Brand Identity',
-  'Social Media Design',
-  'Campaign Design',
-  'Editorial Design',
-  'Digital Creative',
-  'Creative Direction',
-]
+import workEventPoster from '../assets/work_event_poster.png'
+import workSocialMedia from '../assets/work_social_media.png'
+import workPresentation from '../assets/work_presentation.png'
 
 const projects = [
-  {
-    id: 1,
-    title: 'Aura Luxury Skincare',
-    category: 'Brand Identity',
-    image: workBeauty1,
-  },
-  {
-    id: 2,
-    title: 'Maison de Soie Campaign',
-    category: 'Campaign Design',
-    image: workFashion1,
-  },
-  {
-    id: 3,
-    title: 'Lumière Editorial Lookbook',
-    category: 'Editorial Design',
-    image: workFashion2,
-  },
-  {
-    id: 4,
-    title: 'Velvet Rose Social Suite',
-    category: 'Social Media Design',
-    image: workLifestyle1,
-  },
-  {
-    id: 5,
-    title: 'Botanique Botanical Identity',
-    category: 'Brand Identity',
-    image: workBeauty1,
-  },
-  {
-    id: 6,
-    title: 'Elysian Studio Direction',
-    category: 'Creative Direction',
-    image: workLifestyle1,
-  },
+  { id: 1, title: 'Campus Event Poster', category: 'Event Design', image: workEventPoster },
+  { id: 2, title: 'Organization Instagram', category: 'Social Media Design', image: workSocialMedia },
+  { id: 3, title: 'Event Documentation', category: 'Creative Editing', image: workFashion1 },
+  { id: 4, title: 'Competition Poster', category: 'Graphic Design', image: workBeauty1 },
+  { id: 5, title: 'Presentation Deck', category: 'Presentation Design', image: workPresentation },
+  { id: 6, title: 'Social Media Campaign', category: 'Digital Design', image: workLifestyle1 },
+  { id: 7, title: 'Event Announcement', category: 'Visual Content', image: workFashion2 },
+  { id: 8, title: 'Creative Visual Set', category: 'Graphic Design', image: workEventPoster },
 ]
 
-export default function FeaturedWorks() {
-  const [activeCategory, setActiveCategory] = useState('All')
-
-  const filteredProjects = activeCategory === 'All'
-    ? projects
-    : projects.filter((p) => p.category === activeCategory)
-
+export default function Works() {
   return (
     <section
       id="works"
-      className="relative py-24 lg:py-32 overflow-hidden"
-      style={{ background: '#FDF1F4' }}
+      className="section-pad"
+      style={{ background: '#FFFFFF' }}
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-10">
-        
+      <div className="container-main">
+
         {/* Header */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="text-center mb-12"
+          style={{ marginBottom: '3.5rem' }}
         >
-          <div className="section-label justify-center">Portfolio</div>
-          <h2
-            className="heading-editorial mt-3 mb-4"
-            style={{ fontSize: 'clamp(2.25rem, 4.5vw, 3.75rem)' }}
-          >
-            Selected <span className="italic text-gradient">Works</span>
-          </h2>
-          <p className="text-sm max-w-md mx-auto" style={{ color: 'var(--text-secondary)' }}>
-            A collection of brand identity, editorial, and digital design projects.
+          <p style={{
+            fontSize: '0.6875rem',
+            fontWeight: 600,
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'var(--pink-accent)',
+            marginBottom: '1rem',
+          }}>
+            Portfolio
           </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
+            <h2 style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+              fontWeight: 700,
+              letterSpacing: '-0.01em',
+              color: 'var(--text-dark)',
+              lineHeight: 1.15,
+            }}>
+              Things I've Created.
+            </h2>
+            <p style={{
+              fontSize: '0.875rem',
+              color: 'var(--text-secondary)',
+              maxWidth: '20rem',
+              lineHeight: 1.6,
+            }}>
+              A collection of visual work, event projects, and designs I've enjoyed creating.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Category Filters */}
+        {/* Grid */}
         <motion.div
-          variants={fadeUp}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="works-grid"
         >
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className="px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border-none cursor-pointer"
-              style={
-                activeCategory === cat
-                  ? {
-                      background: 'var(--pink-accent)',
-                      color: '#ffffff',
-                      boxShadow: '0 4px 14px rgba(217,122,152,0.3)',
-                    }
-                  : {
-                      background: '#FFFFFF',
-                      color: 'var(--text-secondary)',
-                      border: '1px solid rgba(217,122,152,0.14)',
-                    }
-              }
+          {projects.map((project) => (
+            <motion.article
+              key={project.id}
+              variants={fadeUp}
+              style={{ cursor: 'pointer' }}
+              className="work-item"
             >
-              {cat}
-            </button>
+              {/* Image */}
+              <div
+                style={{
+                  position: 'relative',
+                  overflow: 'hidden',
+                  borderRadius: '1rem',
+                  aspectRatio: '4/3',
+                  marginBottom: '0.75rem',
+                }}
+              >
+                <motion.img
+                  src={project.image}
+                  alt={project.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  variants={imageZoom}
+                  initial="rest"
+                  whileHover="hover"
+                  loading="lazy"
+                />
+                {/* Hover overlay */}
+                <div
+                  className="work-overlay"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    display: 'flex',
+                    alignItems: 'flex-end',
+                    padding: '1rem',
+                    background: 'linear-gradient(to top, rgba(48,40,44,0.65) 0%, transparent 60%)',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                    <div>
+                      <p style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, lineHeight: 1.3 }}>{project.title}</p>
+                      <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.75rem', marginTop: '0.25rem' }}>{project.category}</p>
+                    </div>
+                    <div style={{
+                      width: '2rem',
+                      height: '2rem',
+                      borderRadius: '50%',
+                      background: 'rgba(255,255,255,0.15)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}>
+                      <ArrowUpRight size={14} color="#fff" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Label below */}
+              <div>
+                <h3 style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-dark)', lineHeight: 1.4 }}>
+                  {project.title}
+                </h3>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>
+                  {project.category}
+                </p>
+              </div>
+            </motion.article>
           ))}
         </motion.div>
 
-        {/* Projects Clean Grid */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCategory}
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                variants={fadeUp}
-                className="clean-card overflow-hidden group cursor-pointer"
-              >
-                <div
-                  className="relative overflow-hidden"
-                  style={{ aspectRatio: '4/3' }}
-                >
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    variants={imageZoom}
-                    initial="rest"
-                    whileHover="hover"
-                    loading="lazy"
-                  />
-                  {/* Subtle overlay */}
-                  <motion.div
-                    variants={overlayReveal}
-                    initial="rest"
-                    whileHover="hover"
-                    className="absolute inset-0 bg-black/20 flex items-center justify-center"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
-                      <ArrowUpRight size={18} className="text-[var(--text-primary)]" />
-                    </div>
-                  </motion.div>
-                </div>
-
-                <div className="p-5 flex items-center justify-between">
-                  <div>
-                    <h3 className="font-serif font-medium text-lg mb-0.5" style={{ color: 'var(--text-primary)' }}>
-                      {project.title}
-                    </h3>
-                    <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>
-                      {project.category}
-                    </p>
-                  </div>
-                  <ArrowUpRight
-                    size={16}
-                    className="text-[var(--pink-accent)] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-
-        {/* View All Projects CTA */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-          className="text-center mt-12"
-        >
-          <button className="btn-secondary text-xs py-2.5 px-6">
-            View All Projects
-            <ArrowUpRight size={14} />
-          </button>
-        </motion.div>
-
       </div>
+
+      <style>{`
+        .work-item:hover .work-overlay {
+          opacity: 1 !important;
+        }
+      `}</style>
     </section>
   )
 }
