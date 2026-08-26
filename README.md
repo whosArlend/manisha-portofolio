@@ -77,4 +77,4 @@ src/
 
 ---
 
-*© 2026 Manisha. Designed with love for creative excellence.*
+*© 2026 v4mpir3 Labs. All rights reserved.*

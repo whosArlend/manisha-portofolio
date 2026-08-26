@@ -70,7 +70,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>
-            © {new Date().getFullYear()} v4mpir3 Labs. All rights reserved.
+            © {new Date().getFullYear()} <a href="https://github.com/whosArlend" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>v4mpir3 Labs</a>. All rights reserved.
           </p>
         </div>
       </div>
