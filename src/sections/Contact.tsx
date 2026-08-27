@@ -65,6 +65,8 @@ export default function Contact() {
               <a
                 id="contact-get-in-touch"
                 href="mailto:manishaqurratu361@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary"
               >
                 Get In Touch
@@ -77,6 +79,8 @@ export default function Contact() {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group"
                   style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', textDecoration: 'none' }}
                 >

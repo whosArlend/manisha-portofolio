@@ -48,6 +48,8 @@ export default function Footer() {
               <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200"
                 style={{
