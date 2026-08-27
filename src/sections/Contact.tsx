@@ -74,26 +74,19 @@ export default function Contact() {
             </div>
 
             {/* Contact links */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-start' }}>
               {contactLinks.map(({ icon: Icon, label, href, display }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group"
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', textDecoration: 'none' }}
+                  className="contact-highlight-link"
                 >
-                  <span
-                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 group-hover:scale-105"
-                    style={{ background: 'rgba(217,120,152,0.14)', color: 'var(--pink-accent)' }}
-                  >
+                  <span className="contact-icon-box">
                     <Icon size={16} />
                   </span>
-                  <span
-                    className="text-sm font-medium transition-colors duration-200 group-hover:text-[var(--pink-accent)]"
-                    style={{ color: 'var(--text-dark)' }}
-                  >
+                  <span className="contact-display-text">
                     {display}
                   </span>
                 </a>

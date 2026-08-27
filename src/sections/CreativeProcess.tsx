@@ -39,10 +39,10 @@ export default function CreativeProcess() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="mb-16"
+          style={{ marginBottom: '4rem' }}
         >
           <p
-            className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+            className="text-xs font-semibold tracking-[0.2em] uppercase mb-3"
             style={{ color: 'var(--pink-accent)' }}
           >
             Process
@@ -59,7 +59,7 @@ export default function CreativeProcess() {
           </h2>
         </motion.div>
 
-        {/* Steps — typographic grid, no cards */}
+        {/* Steps */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -68,22 +68,45 @@ export default function CreativeProcess() {
           className="four-col"
         >
           {steps.map((step) => (
-            <motion.div key={step.num} variants={fadeUp}>
+            <motion.div
+              key={step.num}
+              variants={fadeUp}
+              style={{
+                borderTop: '1px solid rgba(217, 120, 152, 0.22)',
+                paddingTop: '1.75rem',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
               <span
-                className="block text-4xl font-bold mb-4 leading-none"
-                style={{ color: 'var(--pink-soft)' }}
+                style={{
+                  fontSize: '2.5rem',
+                  fontWeight: 700,
+                  color: 'var(--pink-accent)',
+                  opacity: 0.55,
+                  marginBottom: '1rem',
+                  lineHeight: 1,
+                  fontFamily: 'Inter, sans-serif',
+                }}
               >
                 {step.num}
               </span>
               <h3
-                className="text-base font-semibold mb-2"
-                style={{ color: 'var(--text-dark)' }}
+                style={{
+                  fontSize: '1.125rem',
+                  fontWeight: 600,
+                  color: 'var(--text-dark)',
+                  marginBottom: '0.75rem',
+                }}
               >
                 {step.title}
               </h3>
               <p
-                className="text-xs leading-relaxed"
-                style={{ color: 'var(--text-secondary)' }}
+                style={{
+                  fontSize: '0.875rem',
+                  lineHeight: 1.7,
+                  color: 'var(--text-secondary)',
+                }}
               >
                 {step.description}
               </p>

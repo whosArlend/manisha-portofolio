@@ -113,13 +113,14 @@ body {
 @media (min-width: 640px) {
   .four-col {
     grid-template-columns: 1fr 1fr;
+    gap: 3rem 2.25rem;
   }
 }
 
 @media (min-width: 1024px) {
   .four-col {
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
   }
 }
 
@@ -270,6 +271,57 @@ body {
   background-color: rgba(217, 120, 152, 0.12);
   box-shadow: 0 0 12px rgba(217, 120, 152, 0.2);
   transform: translateY(-1px);
+}
+
+/* ========== CONTACT HIGHLIGHT LINK ========== */
+
+.contact-highlight-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.45rem 1rem 0.45rem 0.45rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-highlight-link:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(217, 120, 152, 0.28);
+  box-shadow: 0 4px 16px rgba(217, 120, 152, 0.16);
+  transform: translateX(6px);
+}
+
+.contact-highlight-link .contact-icon-box {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(217, 120, 152, 0.16);
+  color: var(--pink-accent);
+  transition: all 0.25s ease;
+}
+
+.contact-highlight-link:hover .contact-icon-box {
+  background: var(--pink-accent);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.contact-highlight-link .contact-display-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: color 0.25s ease;
+}
+
+.contact-highlight-link:hover .contact-display-text {
+  color: var(--pink-accent);
 }
 
 /* ========== REDUCED MOTION ========== */
