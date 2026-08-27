@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations'
-import aboutPortrait from '../assets/about_portrait.png'
+import aboutPortrait from '../assets/about_portrait.jpeg'
 
 const interests = [
   'Graphic Editing',

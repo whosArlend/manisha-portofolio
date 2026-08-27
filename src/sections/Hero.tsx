@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { fadeUp, staggerContainer } from '../utils/animations'
-import heroPortrait from '../assets/hero_portrait.png'
+import heroPortrait from '../assets/hero_portrait.jpeg'
 
 export default function Hero() {
   return (
