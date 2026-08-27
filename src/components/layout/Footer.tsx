@@ -17,9 +17,9 @@ const MailIcon = () => (
 )
 
 const socials = [
-  { icon: InstagramIcon, label: 'Instagram', href: '#' },
-  { icon: LinkedInIcon, label: 'LinkedIn', href: '#' },
-  { icon: MailIcon, label: 'Email', href: 'mailto:manisha@email.com' },
+  { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/manishazael/' },
+  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/in/manisha-qurratu-982392324/' },
+  { icon: MailIcon, label: 'Email', href: 'mailto:manishaqurratu361@gmail.com' },
 ]
 
 export default function Footer() {
