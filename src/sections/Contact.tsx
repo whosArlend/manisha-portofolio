@@ -16,7 +16,7 @@ const LinkedInIcon = () => (
 
 const contactLinks = [
   { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/manishazael/', display: '@manishazael' },
-  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/in/manisha-qurratu-982392324/', display: 'linkedin.com/in/manisha' },
+  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/in/manisha-qurratu-982392324/', display: 'linkedin.com/in/manisha-qurratu' },
   { icon: Mail, label: 'Email', href: 'mailto:manishaqurratu361@gmail.com', display: 'manishaqurratu361@gmail.com' },
 ]
 
