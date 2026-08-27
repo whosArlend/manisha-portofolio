@@ -55,37 +55,39 @@ export default function Contact() {
             </h2>
 
             <p
-              className="text-sm leading-relaxed mb-10"
-              style={{ color: 'var(--text-secondary)' }}
+              className="text-sm leading-relaxed"
+              style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}
             >
               Have an event, organization project, or creative idea in mind? I'd love to help turn it into something visual.
             </p>
 
-            <a
-              id="contact-get-in-touch"
-              href="mailto:manisha@email.com"
-              className="btn-primary inline-flex mb-12"
-            >
-              Get In Touch
-            </a>
+            <div style={{ marginBottom: '2.75rem' }}>
+              <a
+                id="contact-get-in-touch"
+                href="mailto:manisha@email.com"
+                className="btn-primary"
+              >
+                Get In Touch
+              </a>
+            </div>
 
             {/* Contact links */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               {contactLinks.map(({ icon: Icon, label, href, display }) => (
                 <a
                   key={label}
                   href={href}
                   className="group"
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', textDecoration: 'none' }}
                 >
                   <span
-                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-200"
-                    style={{ background: 'rgba(217,120,152,0.12)', color: 'var(--pink-accent)' }}
+                    className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 group-hover:scale-105"
+                    style={{ background: 'rgba(217,120,152,0.14)', color: 'var(--pink-accent)' }}
                   >
-                    <Icon size={15} />
+                    <Icon size={16} />
                   </span>
                   <span
-                    className="text-sm group-hover:underline transition-all"
+                    className="text-sm font-medium transition-colors duration-200 group-hover:text-[var(--pink-accent)]"
                     style={{ color: 'var(--text-dark)' }}
                   >
                     {display}
