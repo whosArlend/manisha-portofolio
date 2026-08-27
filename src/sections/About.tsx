@@ -61,10 +61,10 @@ export default function About() {
               variants={fadeUp}
               style={{ marginBottom: '2rem' }}
             >
-              <p style={{ fontSize: '0.9375rem', lineHeight: 1.75, color: 'var(--text-secondary)', marginBottom: '1rem' }}>
+              <p style={{ fontSize: '0.9375rem', lineHeight: 1.75, color: 'var(--text-secondary)', marginBottom: '1rem', textAlign: "justify" }}>
                 I'm Manisha — someone who genuinely enjoys spending hours making things look good. Whether it's a poster for a campus event, a social media template for an organization, or a presentation that actually keeps people interested.
               </p>
-              <p style={{ fontSize: '0.9375rem', lineHeight: 1.75, color: 'var(--text-secondary)' }}>
+              <p style={{ fontSize: '0.9375rem', lineHeight: 1.75, color: 'var(--text-secondary)', textAlign: "justify" }}>
                 I love the process of exploring visuals, experimenting with layouts, and finding the right way to communicate something through design. Canva, Photoshop, or just sketching ideas — I'm always creating something.
               </p>
             </motion.div>

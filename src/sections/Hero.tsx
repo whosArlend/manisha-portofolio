@@ -68,6 +68,7 @@ export default function Hero() {
                 color: 'var(--text-secondary)',
                 maxWidth: '28rem',
                 marginBottom: '2.5rem',
+                textAlign: 'justify',
               }}
             >
               Creative editor and visual enthusiast who enjoys turning ideas into posters, social media content, event visuals, and memorable designs.
