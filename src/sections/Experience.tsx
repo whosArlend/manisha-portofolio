@@ -4,7 +4,7 @@ import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations'
 const experiences = [
   {
     year: '2025',
-    role: 'PDD — Campus Event',
+    role: 'Social Media Designer — Campus Event',
     org: 'Campus Organization',
     description: 'Visual design, poster creation, and social media materials for major campus events.',
   },
