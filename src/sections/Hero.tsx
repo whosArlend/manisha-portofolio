@@ -29,7 +29,7 @@ export default function Hero() {
                 marginBottom: '1.25rem',
               }}
             >
-              Creative Editor · Visual Designer · Graphic Designer
+              Creative Editor          &          Graphic Designer
             </motion.p>
 
             <motion.h1
@@ -47,7 +47,8 @@ export default function Hero() {
               Hi, I'm{' '}
               <span style={{ color: 'var(--pink-accent)' }}>Manisha.</span>
               <br />
-              I create things{' '}
+              I create things
+              <br />
               <span
                 style={{
                   background: 'linear-gradient(135deg, var(--pink-accent), var(--pink-primary))',
