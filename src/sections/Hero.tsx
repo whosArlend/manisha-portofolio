@@ -29,7 +29,7 @@ export default function Hero() {
                 marginBottom: '1.25rem',
               }}
             >
-              Creative Editor          &          Graphic Designer
+              Creative Editor & Graphic Designer
             </motion.p>
 
             <motion.h1
