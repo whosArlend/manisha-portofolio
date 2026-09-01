@@ -3,7 +3,6 @@ import {
   Sparkles,
   Wand2,
   Share2,
-  Layers,
   Video,
 } from 'lucide-react'
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations'
@@ -12,22 +11,20 @@ import aboutPortrait from '../assets/about_portrait.jpeg'
 const interests = [
   {
     title: 'Canva Design',
-    tagline: 'Templates, layouts & assets',
+    tagline: 'Aesthetic templates, layouts & digital assets',
+    tag: 'Visual & Layout',
     icon: Wand2,
   },
   {
     title: 'Social Media Content',
-    tagline: 'Feeds, carousels, stories & reels',
+    tagline: 'Feeds, carousels, engaging stories & viral reels',
+    tag: 'Content & Feeds',
     icon: Share2,
   },
   {
-    title: 'Poster Design',
-    tagline: 'Impactful layout & typography',
-    icon: Layers,
-  },
-  {
     title: 'Video Editing',
-    tagline: 'Memorable videos for life’s special moments',
+    tagline: 'Cinematic & memorable edits for special moments',
+    tag: 'Reels & Moments',
     icon: Video,
   },
 ]
@@ -119,11 +116,11 @@ export default function About() {
                 </p>
               </div>
 
-              {/* Creative Cards Grid */}
+              {/* Creative 3-Card Stack */}
               <div
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                  display: 'flex',
+                  flexDirection: 'column',
                   gap: '0.75rem',
                 }}
               >
@@ -132,69 +129,87 @@ export default function About() {
                   return (
                     <motion.div
                       key={item.title}
-                      initial={{ opacity: 0, y: 15 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.35, delay: idx * 0.05 }}
+                      transition={{ duration: 0.35, delay: idx * 0.08 }}
                       whileHover={{
-                        y: -3,
-                        borderColor: 'rgba(217, 120, 152, 0.5)',
+                        x: 4,
+                        borderColor: 'rgba(217, 120, 152, 0.45)',
                         backgroundColor: '#FFFFFF',
-                        boxShadow: '0 8px 20px -4px rgba(217, 120, 152, 0.18)',
+                        boxShadow: '0 8px 24px -4px rgba(217, 120, 152, 0.18)',
                       }}
                       style={{
-                        padding: '0.75rem 0.875rem',
-                        borderRadius: '0.875rem',
-                        background: 'rgba(255, 255, 255, 0.65)',
+                        padding: '0.875rem 1.125rem',
+                        borderRadius: '1rem',
+                        background: 'rgba(255, 255, 255, 0.75)',
                         border: '1px solid rgba(217, 120, 152, 0.2)',
                         backdropFilter: 'blur(8px)',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '0.75rem',
+                        justifyContent: 'space-between',
+                        gap: '1rem',
                         cursor: 'default',
                         transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
                       }}
                     >
-                      <div
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', minWidth: 0 }}>
+                        <div
+                          style={{
+                            width: '40px',
+                            height: '40px',
+                            borderRadius: '0.75rem',
+                            background: 'linear-gradient(135deg, #FFF0F5 0%, #FCE4EC 100%)',
+                            border: '1px solid rgba(217, 120, 152, 0.25)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: 'var(--pink-accent)',
+                            flexShrink: 0,
+                            boxShadow: '0 2px 6px rgba(217, 120, 152, 0.1)',
+                          }}
+                        >
+                          <Icon size={20} strokeWidth={2.2} />
+                        </div>
+                        <div style={{ minWidth: 0 }}>
+                          <h4
+                            style={{
+                              fontSize: '0.9375rem',
+                              fontWeight: 600,
+                              color: 'var(--text-dark)',
+                              lineHeight: 1.3,
+                              marginBottom: '0.15rem',
+                            }}
+                          >
+                            {item.title}
+                          </h4>
+                          <p
+                            style={{
+                              fontSize: '0.75rem',
+                              color: 'var(--text-secondary)',
+                              fontWeight: 400,
+                              lineHeight: 1.3,
+                            }}
+                          >
+                            {item.tagline}
+                          </p>
+                        </div>
+                      </div>
+
+                      <span
                         style={{
-                          width: '36px',
-                          height: '36px',
-                          borderRadius: '0.625rem',
-                          background: 'linear-gradient(135deg, #FFF0F5 0%, #FCE4EC 100%)',
-                          border: '1px solid rgba(217, 120, 152, 0.25)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
+                          fontSize: '0.6875rem',
+                          fontWeight: 600,
                           color: 'var(--pink-accent)',
+                          background: 'rgba(217, 120, 152, 0.1)',
+                          padding: '0.25rem 0.65rem',
+                          borderRadius: '9999px',
+                          whiteSpace: 'nowrap',
                           flexShrink: 0,
-                          boxShadow: '0 2px 6px rgba(217, 120, 152, 0.1)',
                         }}
                       >
-                        <Icon size={18} strokeWidth={2.2} />
-                      </div>
-                      <div style={{ minWidth: 0, flex: 1 }}>
-                        <h4
-                          style={{
-                            fontSize: '0.875rem',
-                            fontWeight: 600,
-                            color: 'var(--text-dark)',
-                            lineHeight: 1.25,
-                            marginBottom: '0.15rem',
-                          }}
-                        >
-                          {item.title}
-                        </h4>
-                        <p
-                          style={{
-                            fontSize: '0.6875rem',
-                            color: 'var(--text-secondary)',
-                            fontWeight: 400,
-                            lineHeight: 1.2,
-                          }}
-                        >
-                          {item.tagline}
-                        </p>
-                      </div>
+                        {item.tag}
+                      </span>
                     </motion.div>
                   )
                 })}
