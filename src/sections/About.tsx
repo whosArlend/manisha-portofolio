@@ -1,35 +1,23 @@
 import { motion } from 'framer-motion'
 import {
-  Palette,
   Sparkles,
   Wand2,
-  Megaphone,
   Share2,
   Layers,
-  Presentation,
+  Video,
 } from 'lucide-react'
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations'
 import aboutPortrait from '../assets/about_portrait.jpeg'
 
 const interests = [
   {
-    title: 'Graphic Editing',
-    tagline: 'Visual composition & touch-ups',
-    icon: Palette,
-  },
-  {
     title: 'Canva Design',
     tagline: 'Templates, layouts & assets',
     icon: Wand2,
   },
   {
-    title: 'Event Visuals',
-    tagline: 'Banners, stage & promotional kits',
-    icon: Megaphone,
-  },
-  {
     title: 'Social Media Content',
-    tagline: 'Feeds, carousels & stories',
+    tagline: 'Feeds, carousels, stories & reels',
     icon: Share2,
   },
   {
@@ -38,9 +26,9 @@ const interests = [
     icon: Layers,
   },
   {
-    title: 'Presentation Design',
-    tagline: 'Clean pitch decks & slide decks',
-    icon: Presentation,
+    title: 'Video Editing',
+    tagline: 'Memorable videos for life’s special moments',
+    icon: Video,
   },
 ]
 
@@ -95,10 +83,10 @@ export default function About() {
               style={{ marginBottom: '2rem' }}
             >
               <p style={{ fontSize: '0.9375rem', lineHeight: 1.75, color: 'var(--text-secondary)', marginBottom: '1rem', textAlign: "justify" }}>
-                I'm Manisha — someone who genuinely enjoys spending hours making things look good. Whether it's a poster for a campus event, a social media template for an organization, or a presentation that actually keeps people interested.
+                I'm Manisha — someone who genuinely enjoys spending hours making things look good. Whether it's a poster for a campus event, a social media template for an organization, or memorable videos for pre-weddings, engagements, graduations, and other special moments.
               </p>
               <p style={{ fontSize: '0.9375rem', lineHeight: 1.75, color: 'var(--text-secondary)', textAlign: "justify" }}>
-                I love the process of exploring visuals, experimenting with layouts, and finding the right way to communicate something through design. Canva, Photoshop, or just sketching ideas — I'm always creating something.
+                I love the process of exploring visuals, experimenting with layouts, and finding the right way to communicate something through design. Canva, CapCut, or just sketching ideas — I'm always creating something.
               </p>
             </motion.div>
 

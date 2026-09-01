@@ -29,7 +29,7 @@ export default function Hero() {
                 marginBottom: '1.25rem',
               }}
             >
-              Creative Editor & Graphic Designer
+              Creative Content Creator & Social Media Specialist
             </motion.p>
 
             <motion.h1
@@ -72,7 +72,7 @@ export default function Hero() {
                 textAlign: 'justify',
               }}
             >
-              Creative editor and visual enthusiast who enjoys turning ideas into posters, social media content, event visuals, and memorable designs.
+              Creative content creator and visual enthusiast who enjoys turning ideas into posters, social media content, and videography.
             </motion.p>
 
             <motion.div variants={fadeUp} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
