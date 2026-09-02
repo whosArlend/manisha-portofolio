@@ -12,19 +12,19 @@ import workSocialMedia from '../assets/work_social_media.png'
 import workPresentation from '../assets/work_presentation.png'
 
 const projects = [
-  { id: 1, title: 'Campus Event Poster', category: 'Event Design', image: workEventPoster },
+  { id: 1, title: 'Campus Event Poster', category: 'Graphic Design', image: workEventPoster },
   { id: 2, title: 'Organization Instagram', category: 'Social Media Design', image: workSocialMedia },
-  { id: 3, title: 'Event Documentation', category: 'Creative Editing', image: workFashion1 },
-  { id: 4, title: 'Competition Poster', category: 'Graphic Design', image: workBeauty1 },
-  { id: 5, title: 'Presentation Deck', category: 'Presentation Design', image: workPresentation },
+  { id: 3, title: 'Event Documentation', category: 'Other', image: workFashion1 },
+  { id: 4, title: 'Competition Poster', category: 'Video Design', image: workBeauty1 },
+  { id: 5, title: 'Presentation Deck', category: 'Graphic Design', image: workPresentation },
   { id: 6, title: 'Social Media Campaign', category: 'Social Media Design', image: workLifestyle1 },
-  { id: 7, title: 'Event Announcement', category: 'Event Design', image: workFashion2 },
-  { id: 8, title: 'Creative Visual Set', category: 'Graphic Design', image: workEventPoster },
-  { id: 9, title: 'Brand Identity Mockup', category: 'Graphic Design', image: workBeauty1 },
-  { id: 10, title: 'Student Workshop Deck', category: 'Presentation Design', image: workPresentation },
+  { id: 7, title: 'Event Announcement', category: 'Graphic Design', image: workFashion2 },
+  { id: 8, title: 'Creative Visual Set', category: 'Other', image: workEventPoster },
+  { id: 9, title: 'Brand Identity Mockup', category: 'Other', image: workBeauty1 },
+  { id: 10, title: 'Student Workshop Deck', category: 'Video Design', image: workPresentation },
 ]
 
-const categories = ['All', 'Event Design', 'Social Media Design', 'Graphic Design', 'Presentation Design']
+const categories = ['All', 'Graphic Design', 'Social Media Design', 'Video Design', 'Other']
 const INITIAL_COUNT = 6
 
 export default function Works() {
@@ -100,7 +100,7 @@ export default function Works() {
                 maxWidth: '28rem',
                 lineHeight: 1.6,
               }}>
-                A curated selection of visual work, branding, social media, and event designs.
+                A curated collection of visual work shaped by creativity, curiosity, and a love for good design.
               </p>
             </div>
 

@@ -10,7 +10,7 @@ import aboutPortrait from '../assets/about_portrait.jpeg'
 
 const interests = [
   {
-    title: 'Canva Design',
+    title: 'Graphic Design',
     tagline: 'Aesthetic templates, layouts & digital assets',
     tag: 'Visual & Layout',
     icon: Wand2,
@@ -83,7 +83,7 @@ export default function About() {
                 I'm Manisha — someone who genuinely enjoys spending hours making things look good. Whether it's a poster for a campus event, a social media template for an organization, or memorable videos for pre-weddings, engagements, graduations, and other special moments.
               </p>
               <p style={{ fontSize: '0.9375rem', lineHeight: 1.75, color: 'var(--text-secondary)', textAlign: "justify" }}>
-                I love the process of exploring visuals, experimenting with layouts, and finding the right way to communicate something through design. Canva, CapCut, or just sketching ideas — I'm always creating something.
+                I love the process of exploring visuals, experimenting with layouts, and finding the right way to communicate something through design. From designing layouts to editing videos or simply sketching ideas — I'm always creating something.
               </p>
             </motion.div>
 
