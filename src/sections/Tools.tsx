@@ -4,8 +4,6 @@ import { fadeUp, viewportConfig } from '../utils/animations'
 const tools = [
   { name: 'Canva', description: 'Posters, social media, and quick visual content' },
   { name: 'CapCut', description: 'Video editing and motion content' },
-  { name: 'Adobe Photoshop', description: 'Image editing and retouching' },
-  { name: 'Adobe Illustrator', description: 'Vector graphics and illustrations' },
   { name: 'Figma', description: 'UI design and collaborative creative work' },
 ]
 
