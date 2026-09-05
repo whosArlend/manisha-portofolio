@@ -5,22 +5,22 @@ const steps = [
   {
     num: '01',
     title: 'Understand',
-    description: "I start by figuring out what the project needs to communicate and who it's for.",
+    description: "First, I get a clear idea of what the project is about and what it needs to achieve.",
   },
   {
     num: '02',
     title: 'Explore',
-    description: "I look for visual references, experiment with ideas, and find a direction that feels right.",
+    description: "I gather some references, try different ideas, and see what direction works best.",
   },
   {
     num: '03',
     title: 'Create',
-    description: "I bring the idea to life — in Canva, Photoshop, or whatever tool fits the project.",
+    description: "Once I know what works, I start putting everything together using the tools that fit the project.",
   },
   {
     num: '04',
     title: 'Refine',
-    description: "I review, adjust, and polish until the output feels exactly how it should look.",
+    description: "I make small changes, fix anything that feels off, and give the final result a clean finish.",
   },
 ]
 

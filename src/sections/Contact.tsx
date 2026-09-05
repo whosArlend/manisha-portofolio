@@ -16,8 +16,8 @@ const LinkedInIcon = () => (
 
 const contactLinks = [
   { icon: InstagramIcon, label: 'Instagram', href: 'https://www.instagram.com/manishazael/', display: '@manishazael' },
-  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/in/manisha-qurratu-982392324/', display: 'linkedin.com/in/manisha-qurratu' },
-  { icon: Mail, label: 'Email', href: 'mailto:manishaqurratu361@gmail.com', display: 'manishaqurratu361@gmail.com' },
+  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://www.linkedin.com/in/manisha-qurratu-aini-zaenal-798612387/', display: 'linkedin.com/in/manisha-qurratu-aini-zaenal' },
+  { icon: Mail, label: 'Email', href: 'mailto:manishaqurratuainizaenal@gmail.com', display: 'manishaqurratuainizaenal@gmail.com' },
 ]
 
 export default function Contact() {
@@ -64,7 +64,7 @@ export default function Contact() {
             <div style={{ marginBottom: '2.75rem' }}>
               <a
                 id="contact-get-in-touch"
-                href="mailto:manishaqurratu361@gmail.com"
+                href="mailto:manishaqurratuainizaenal@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
