@@ -1,203 +1,189 @@
 import { motion } from 'framer-motion'
+import { Briefcase } from 'lucide-react'
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations'
 
 const experiences = [
   {
-    year: '2024',
-    role: 'Head Coordinator of Creative Media',
-    org: 'Vocational College Sports Week 2024',
-    description: 'Directed the creative media division, designed official event posters and banners, and supervised the documentation team.',
+    year: 'May 2024 – Present',
+    role: 'Content Creator & Videographer',
+    org: 'Hero Creative',
+    isCurrent: true,
   },
   {
     year: '2024',
     role: 'Vice Coordinator of Creative Media',
     org: 'XPRESI Event',
-    description: 'Coordinated the documentation team during events, edited highlight recap videos, and prepared visual feed assets for social media.',
+  },
+  {
+    year: '2024',
+    role: 'Head Coordinator of Creative Media',
+    org: 'Vocational College Sports Week 2024',
   },
   {
     year: '2024 – 2025',
     role: 'Junior Staff of Arts & Sports',
     org: 'Vocational College Student Executive Board',
-    description: 'Designed posters for arts and sports programs, handled on ground event photography, and assisted with social media updates.',
-  },
-  {
-    year: '2025',
-    role: 'Creative Media Staff',
-    org: 'Study Easy',
-    description: 'Designed graphic content for Instagram feeds and crafted engaging promotional posters for educational programs.',
   },
   {
     year: '2025',
     role: 'Creative Media Coordinator',
     org: "It's Our Day",
-    description: 'Led the creative media team, managed event photography and videography documentation, and designed promotional visual materials.',
+  },
+  {
+    year: '2025',
+    role: 'Creative Media Staff',
+    org: 'Study Easy',
   },
   {
     year: '2025 – 2026',
     role: 'Senior Staff of Talent & Interests',
     org: 'Foreign Language Student Association',
-    description: 'Assisted student talent initiatives, designed creative publication assets, and supported visual media coverage for department events.',
   },
-  {
-    year: 'May 2024 – Present',
-    role: 'Content Creator & Videographer',
-    org: 'Hero Creative',
-    description: 'Created short form video content, handled camera production for creative projects, and edited video assets for social media publication.',
-  },
+
+
 ]
 
 export default function Experience() {
   return (
     <section
       id="experience"
-      className="section-pad"
-      style={{ background: 'var(--bg-soft)', width: '100%' }}
+      style={{
+        background: 'var(--bg-soft)',
+        width: '100%',
+        paddingTop: '3.5rem',
+        paddingBottom: '3.5rem',
+      }}
     >
       <div className="container-main" style={{ width: '100%' }}>
 
-        {/* Centered Header */}
+        {/* Compact Header */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           style={{
-            textAlign: 'center',
-            maxWidth: '680px',
+            maxWidth: '720px',
             marginLeft: 'auto',
             marginRight: 'auto',
-            marginBottom: '3.5rem',
+            marginBottom: '1.5rem',
+            textAlign: 'center',
           }}
         >
-          <p
+          <div
             style={{
-              fontSize: '0.75rem',
-              fontWeight: 600,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'var(--pink-accent)',
-              marginBottom: '0.75rem',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              marginBottom: '0.35rem',
             }}
           >
-            Experience
-          </p>
+            <Briefcase size={13} style={{ color: 'var(--pink-accent)' }} />
+            <span
+              style={{
+                fontSize: '0.6875rem',
+                fontWeight: 700,
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                color: 'var(--pink-accent)',
+              }}
+            >
+              Experience
+            </span>
+          </div>
+
           <h2
             style={{
               fontFamily: 'Inter, sans-serif',
-              fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
+              fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
               fontWeight: 700,
               lineHeight: 1.2,
               color: 'var(--text-dark)',
               letterSpacing: '-0.01em',
-              marginBottom: '1rem',
+              margin: 0,
             }}
           >
             Where I've Created.
           </h2>
-          <p
-            style={{
-              fontSize: '0.875rem',
-              lineHeight: 1.6,
-              color: 'var(--text-secondary)',
-              maxWidth: '560px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          >
-            From campus organizations and creative events to internships, here is a highlight of where I've contributed through content creation, graphic design, and videography.
-          </p>
         </motion.div>
 
-        {/* Centered Cards Container */}
-        <div style={{ maxWidth: '768px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
+        {/* Ultra-Simple Clean Minimalist List */}
+        <div style={{ maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.25rem',
-              width: '100%',
+              background: '#FFFFFF',
+              border: '1px solid var(--border)',
+              borderRadius: '1rem',
+              overflow: 'hidden',
+              boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
             }}
           >
             {experiences.map((exp, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
-                style={{ width: '100%' }}
+                className="transition-colors duration-150 hover:bg-[#FFF7FA]"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '0.5rem 1rem',
+                  padding: '0.875rem 1.25rem',
+                  borderBottom: i < experiences.length - 1 ? '1px solid var(--border)' : 'none',
+                }}
               >
-                {/* Experience Card */}
-                <div
-                  className="transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1px solid var(--border)',
-                    borderLeft: '4px solid var(--pink-accent)',
-                    borderRadius: '1rem',
-                    padding: '1.5rem 1.75rem',
-                    width: '100%',
-                    boxSizing: 'border-box',
-                  }}
-                >
-                  <div
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', minWidth: 0 }}>
+                  <span
                     style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      gap: '0.75rem',
-                      marginBottom: '0.5rem',
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: exp.isCurrent ? 'var(--pink-accent)' : 'rgba(217, 120, 152, 0.35)',
+                      flexShrink: 0,
                     }}
-                  >
-                    <h3
+                  />
+                  <div>
+                    <span
                       style={{
-                        fontSize: '1.0625rem',
-                        fontWeight: 700,
+                        fontSize: '0.875rem',
+                        fontWeight: 600,
                         color: 'var(--text-dark)',
-                        margin: 0,
                       }}
                     >
                       {exp.role}
-                    </h3>
+                    </span>
                     <span
                       style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 600,
-                        padding: '0.25rem 0.875rem',
-                        borderRadius: '9999px',
-                        whiteSpace: 'nowrap',
-                        background: 'var(--pink-soft)',
+                        fontSize: '0.78125rem',
                         color: 'var(--pink-accent)',
+                        fontWeight: 500,
+                        marginLeft: '0.5rem',
                       }}
                     >
-                      {exp.year}
+                      @{exp.org}
                     </span>
                   </div>
-
-                  <p
-                    style={{
-                      fontSize: '0.8125rem',
-                      fontWeight: 600,
-                      color: 'var(--pink-accent)',
-                      marginBottom: '0.75rem',
-                    }}
-                  >
-                    {exp.org}
-                  </p>
-
-                  <p
-                    style={{
-                      fontSize: '0.8125rem',
-                      lineHeight: 1.6,
-                      color: 'var(--text-secondary)',
-                      margin: 0,
-                    }}
-                  >
-                    {exp.description}
-                  </p>
                 </div>
+
+                <span
+                  style={{
+                    fontSize: '0.71875rem',
+                    fontWeight: 600,
+                    padding: '0.15rem 0.55rem',
+                    borderRadius: '9999px',
+                    background: exp.isCurrent ? 'var(--pink-soft)' : 'rgba(0,0,0,0.04)',
+                    color: exp.isCurrent ? 'var(--pink-accent)' : 'var(--text-secondary)',
+                    whiteSpace: 'nowrap',
+                    marginLeft: 'auto',
+                  }}
+                >
+                  {exp.year}
+                </span>
               </motion.div>
             ))}
           </motion.div>
@@ -207,3 +193,5 @@ export default function Experience() {
     </section>
   )
 }
+
+
