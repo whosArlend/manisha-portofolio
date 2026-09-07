@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Briefcase, Palette, Film, Wrench } from 'lucide-react'
+import { Briefcase, Palette, Film, Sparkles } from 'lucide-react'
 
 const experiences = [
   {
@@ -208,7 +208,7 @@ export default function Experience() {
                 marginBottom: '0.35rem',
               }}
             >
-              <Wrench size={13} style={{ color: 'var(--pink-accent)' }} />
+              <Sparkles size={13} style={{ color: 'var(--pink-accent)' }} />
               <span
                 style={{
                   fontSize: '0.6875rem',
