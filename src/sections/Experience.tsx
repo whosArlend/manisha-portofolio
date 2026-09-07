@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Briefcase, Palette, Film, Sparkles, Wrench } from 'lucide-react'
+import { Briefcase, Palette, Film, Wrench } from 'lucide-react'
 
 const experiences = [
   {
