@@ -4,8 +4,6 @@ import Hero from './sections/Hero'
 import About from './sections/About'
 import Works from './sections/FeaturedWorks'
 import Experience from './sections/Experience'
-import Tools from './sections/Tools'
-import CreativeProcess from './sections/CreativeProcess'
 import Contact from './sections/Contact'
 
 export default function App() {
@@ -17,11 +15,11 @@ export default function App() {
         <About />
         <Works />
         <Experience />
-        <Tools />
-        <CreativeProcess />
         <Contact />
       </main>
       <Footer />
     </div>
   )
 }
+
+

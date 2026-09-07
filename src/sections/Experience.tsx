@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { Briefcase } from 'lucide-react'
-import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations'
+import { Briefcase, Palette, Film, Sparkles } from 'lucide-react'
 
 const experiences = [
   {
@@ -39,8 +38,19 @@ const experiences = [
     role: 'Senior Staff of Talent & Interests',
     org: 'Foreign Language Student Association',
   },
+]
 
-
+const tools = [
+  {
+    name: 'Canva',
+    role: 'Posters, social media, & visual content',
+    icon: Palette,
+  },
+  {
+    name: 'CapCut',
+    role: 'Video editing & motion content',
+    icon: Film,
+  },
 ]
 
 export default function Experience() {
@@ -55,77 +65,71 @@ export default function Experience() {
       }}
     >
       <div className="container-main" style={{ width: '100%' }}>
+        <div style={{ maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
 
-        {/* Compact Header */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-          style={{
-            maxWidth: '720px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            marginBottom: '1.5rem',
-            textAlign: 'center',
-          }}
-        >
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.4rem',
-              marginBottom: '0.35rem',
-            }}
+          {/* 1. EXPERIENCE SUBSECTION */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            style={{ marginBottom: '1.25rem' }}
           >
-            <Briefcase size={13} style={{ color: 'var(--pink-accent)' }} />
-            <span
+            <div
               style={{
-                fontSize: '0.6875rem',
-                fontWeight: 700,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'var(--pink-accent)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                marginBottom: '0.35rem',
               }}
             >
-              Experience
-            </span>
-          </div>
+              <Briefcase size={13} style={{ color: 'var(--pink-accent)' }} />
+              <span
+                style={{
+                  fontSize: '0.6875rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  color: 'var(--pink-accent)',
+                }}
+              >
+                Experience
+              </span>
+            </div>
 
-          <h2
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
-              fontWeight: 700,
-              lineHeight: 1.2,
-              color: 'var(--text-dark)',
-              letterSpacing: '-0.01em',
-              margin: 0,
-            }}
-          >
-            Where I've Created.
-          </h2>
-        </motion.div>
+            <h2
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                fontWeight: 700,
+                lineHeight: 1.2,
+                color: 'var(--text-dark)',
+                letterSpacing: '-0.01em',
+                margin: 0,
+              }}
+            >
+              Where I've Created.
+            </h2>
+          </motion.div>
 
-        {/* Ultra-Simple Clean Minimalist List */}
-        <div style={{ maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto', width: '100%' }}>
+          {/* Experience List Card */}
           <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             style={{
               background: '#FFFFFF',
               border: '1px solid var(--border)',
               borderRadius: '1rem',
               overflow: 'hidden',
-              boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
+              boxShadow: '0 2px 12px rgba(217, 120, 152, 0.05)',
+              marginBottom: '2.5rem',
             }}
           >
             {experiences.map((exp, i) => (
-              <motion.div
+              <div
                 key={i}
-                variants={fadeUp}
                 className="transition-colors duration-150 hover:bg-[#FFF7FA]"
                 style={{
                   display: 'flex',
@@ -184,14 +188,130 @@ export default function Experience() {
                 >
                   {exp.year}
                 </span>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
-        </div>
 
+          {/* 2. TOOLS SUBSECTION */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            style={{ marginBottom: '1.25rem' }}
+          >
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                marginBottom: '0.35rem',
+              }}
+            >
+              <Sparkles size={13} style={{ color: 'var(--pink-accent)' }} />
+              <span
+                style={{
+                  fontSize: '0.6875rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  color: 'var(--pink-accent)',
+                }}
+              >
+                Tools
+              </span>
+            </div>
+
+            <h2
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                fontWeight: 700,
+                lineHeight: 1.2,
+                color: 'var(--text-dark)',
+                letterSpacing: '-0.01em',
+                margin: 0,
+              }}
+            >
+              Tools I Enjoy Using.
+            </h2>
+          </motion.div>
+
+          {/* Tools Simple Cards Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.05 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3.5"
+          >
+            {tools.map((tool) => {
+              const Icon = tool.icon
+              return (
+                <div
+                  key={tool.name}
+                  className="transition-all duration-150 hover:-translate-y-0.5"
+                  style={{
+                    background: '#FFFFFF',
+                    border: '1px solid var(--border)',
+                    borderRadius: '0.875rem',
+                    padding: '1rem 1.15rem',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '0.875rem',
+                    boxShadow: '0 2px 10px rgba(217, 120, 152, 0.04)',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '34px',
+                      height: '34px',
+                      borderRadius: '0.625rem',
+                      background: 'rgba(217, 120, 152, 0.12)',
+                      color: 'var(--pink-accent)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Icon size={16} strokeWidth={2.2} />
+                  </div>
+                  <div style={{ minWidth: 0 }}>
+                    <h3
+                      style={{
+                        fontSize: '0.9375rem',
+                        fontWeight: 700,
+                        color: 'var(--text-dark)',
+                        margin: 0,
+                        lineHeight: 1.3,
+                        marginBottom: '0.2rem',
+                      }}
+                    >
+                      {tool.name}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: '0.78125rem',
+                        color: 'var(--text-secondary)',
+                        margin: 0,
+                        lineHeight: 1.4,
+                      }}
+                    >
+                      {tool.role}
+                    </p>
+                  </div>
+                </div>
+              )
+            })}
+          </motion.div>
+
+        </div>
       </div>
     </section>
   )
 }
+
+
 
 
