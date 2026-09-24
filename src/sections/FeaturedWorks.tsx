@@ -8,10 +8,29 @@ import { getImageUrl } from '../lib/storage'
 const categories = ['All', 'Graphic Design', 'Social Media Design', 'Video Design', 'Other']
 const INITIAL_COUNT = 6
 
+const getNormalizedLink = (link: string | undefined | null) => {
+  if (!link) return null
+  if (link.startsWith('http://') || link.startsWith('https://')) {
+    return link
+  }
+  return `https://${link}`
+}
+
 export default function Works() {
   const [projects, setProjects] = useState<any[]>([])
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [isExpanded, setIsExpanded] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedImage) {
+        setSelectedImage(null)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedImage])
 
   useEffect(() => {
     async function fetchProjects() {
@@ -165,6 +184,9 @@ export default function Works() {
                 transition={{ duration: 0.35, ease: 'easeOut' }}
                 style={{ cursor: 'pointer' }}
                 className="work-item"
+                onClick={() => {
+                  if (project.image) setSelectedImage(project.image)
+                }}
               >
                 {/* Image */}
                 <div
@@ -212,20 +234,28 @@ export default function Works() {
                         <p style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 600, lineHeight: 1.3 }}>{project.title}</p>
                         <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.75rem', marginTop: '0.25rem' }}>{project.category}</p>
                       </div>
-                      <div style={{
-                        width: '2.25rem',
-                        height: '2.25rem',
-                        borderRadius: '50%',
-                        background: 'rgba(255,255,255,0.2)',
-                        backdropFilter: 'blur(4px)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                        border: '1px solid rgba(255,255,255,0.3)',
-                      }}>
-                        <ArrowUpRight size={15} color="#fff" />
-                      </div>
+                      {project.project_link && (
+                        <a 
+                          href={getNormalizedLink(project.project_link)!}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          aria-label="Open project"
+                          style={{
+                            width: '2.25rem',
+                            height: '2.25rem',
+                            borderRadius: '50%',
+                            background: 'rgba(255,255,255,0.2)',
+                            backdropFilter: 'blur(4px)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0,
+                            border: '1px solid rgba(255,255,255,0.3)',
+                          }}>
+                          <ArrowUpRight size={15} color="#fff" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -309,6 +339,70 @@ export default function Works() {
             </p>
           </motion.div>
         )}
+
+        {/* Lightbox / Image Preview */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              style={{
+                position: 'fixed',
+                inset: 0,
+                zIndex: 9999,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: 'rgba(0,0,0,0.85)',
+                padding: '2rem',
+                cursor: 'zoom-out'
+              }}
+            >
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setSelectedImage(null)
+                }}
+                aria-label="Close preview"
+                style={{
+                  position: 'absolute',
+                  top: '1.5rem',
+                  right: '1.5rem',
+                  background: 'rgba(255,255,255,0.1)',
+                  border: 'none',
+                  color: 'white',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                }}
+              >
+                ✕
+              </button>
+              <motion.img 
+                src={selectedImage} 
+                alt="Project Preview"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'contain',
+                  borderRadius: '8px',
+                  cursor: 'default',
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.5)'
+                }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </div>
 

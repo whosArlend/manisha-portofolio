@@ -201,11 +201,17 @@ export default function ProjectsManager() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                            <div className="flex items-center justify-between mb-1">
+                                <label className="block text-sm font-medium text-gray-700">Description</label>
+                                <span className={`text-xs ${description.length >= 50 ? 'text-red-500' : 'text-gray-400'}`}>
+                                    {description.length}/50
+                                </span>
+                            </div>
                             <textarea
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                rows={3}
+                                rows={2}
+                                maxLength={50}
                                 className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-black outline-none resize-none"
                             />
                         </div>
