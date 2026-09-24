@@ -5,11 +5,14 @@ import About from './sections/About'
 import Works from './sections/FeaturedWorks'
 import Experience from './sections/Experience'
 import Contact from './sections/Contact'
+import AdminLogin from './pages/admin/AdminLogin'
+import AdminDashboard from './pages/admin/AdminDashboard'
 
-export default function App() {
+function Portfolio() {
   return (
     <div className="relative overflow-x-hidden" style={{ background: '#FFFFFF' }}>
       <Navbar />
+
       <main>
         <Hero />
         <About />
@@ -17,9 +20,22 @@ export default function App() {
         <Experience />
         <Contact />
       </main>
+
       <Footer />
     </div>
   )
 }
 
+export default function App() {
+  const path = window.location.pathname
 
+  if (path === '/admin/login') {
+    return <AdminLogin />
+  }
+
+  if (path === '/admin') {
+    return <AdminDashboard />
+  }
+
+  return <Portfolio />
+}

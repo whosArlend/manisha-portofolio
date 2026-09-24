@@ -1,35 +1,42 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, ChevronDown, Sparkles } from 'lucide-react'
 import { fadeUp, staggerContainer, viewportConfig, imageZoom } from '../utils/animations'
-
-import workFashion1 from '../assets/work_fashion1.png'
-import workBeauty1 from '../assets/work_beauty1.png'
-import workLifestyle1 from '../assets/work_lifestyle1.png'
-import workFashion2 from '../assets/work_fashion2.png'
-import workEventPoster from '../assets/work_event_poster.png'
-import workSocialMedia from '../assets/work_social_media.png'
-import workPresentation from '../assets/work_presentation.png'
-
-const projects = [
-  { id: 1, title: 'Campus Event Poster', category: 'Graphic Design', image: workEventPoster },
-  { id: 2, title: 'Organization Instagram', category: 'Social Media Design', image: workSocialMedia },
-  { id: 3, title: 'Event Documentation', category: 'Other', image: workFashion1 },
-  { id: 4, title: 'Competition Poster', category: 'Video Design', image: workBeauty1 },
-  { id: 5, title: 'Presentation Deck', category: 'Graphic Design', image: workPresentation },
-  { id: 6, title: 'Social Media Campaign', category: 'Social Media Design', image: workLifestyle1 },
-  { id: 7, title: 'Event Announcement', category: 'Graphic Design', image: workFashion2 },
-  { id: 8, title: 'Creative Visual Set', category: 'Other', image: workEventPoster },
-  { id: 9, title: 'Brand Identity Mockup', category: 'Other', image: workBeauty1 },
-  { id: 10, title: 'Student Workshop Deck', category: 'Video Design', image: workPresentation },
-]
+import { supabase } from '../lib/supabase'
+import { getImageUrl } from '../lib/storage'
 
 const categories = ['All', 'Graphic Design', 'Social Media Design', 'Video Design', 'Other']
 const INITIAL_COUNT = 6
 
 export default function Works() {
+  const [projects, setProjects] = useState<any[]>([])
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [isExpanded, setIsExpanded] = useState(false)
+
+  useEffect(() => {
+    async function fetchProjects() {
+      const { data, error } = await supabase
+        .from('projects')
+        .select('*')
+        .order('created_at', { ascending: false })
+
+      if (!error && data) {
+        // Resolve all image URLs
+        const projectsWithImages = await Promise.all(
+          data.map(async (p) => {
+            let image = null
+            if (p.image_url) {
+              image = await getImageUrl(p.image_url)
+            }
+            return { ...p, image }
+          })
+        )
+        setProjects(projectsWithImages)
+      }
+    }
+
+    fetchProjects()
+  }, [])
 
   const filteredProjects = projects.filter((project) => {
     if (selectedCategory === 'All') return true
@@ -171,15 +178,21 @@ export default function Works() {
                     border: '1px solid rgba(217, 120, 152, 0.12)',
                   }}
                 >
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    variants={imageZoom}
-                    initial="rest"
-                    whileHover="hover"
-                    loading="lazy"
-                  />
+                  {project.image ? (
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      variants={imageZoom}
+                      initial="rest"
+                      whileHover="hover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999', fontSize: '0.75rem' }}>
+                      No Image
+                    </div>
+                  )}
                   {/* Hover overlay */}
                   <div
                     className="work-overlay"

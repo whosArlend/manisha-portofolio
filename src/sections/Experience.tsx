@@ -1,44 +1,7 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Briefcase, Palette, Film, Wrench } from 'lucide-react'
-
-const experiences = [
-  {
-    year: 'May 2024 – Present',
-    role: 'Content Creator & Videographer',
-    org: 'Hero Creative',
-    isCurrent: true,
-  },
-  {
-    year: '2024',
-    role: 'Vice Coordinator of Creative Media',
-    org: 'XPRESI Event',
-  },
-  {
-    year: '2024',
-    role: 'Head Coordinator of Creative Media',
-    org: 'Vocational College Sports Week 2024',
-  },
-  {
-    year: '2024 – 2025',
-    role: 'Junior Staff of Arts & Sports',
-    org: 'Vocational College Student Executive Board',
-  },
-  {
-    year: '2025',
-    role: 'Creative Media Coordinator',
-    org: "It's Our Day",
-  },
-  {
-    year: '2025',
-    role: 'Creative Media Staff',
-    org: 'Study Easy',
-  },
-  {
-    year: '2025 – 2026',
-    role: 'Senior Staff of Talent & Interests',
-    org: 'Foreign Language Student Association',
-  },
-]
+import { supabase } from '../lib/supabase'
 
 const tools = [
   {
@@ -54,6 +17,39 @@ const tools = [
 ]
 
 export default function Experience() {
+  const [experiences, setExperiences] = useState<any[]>([])
+
+  useEffect(() => {
+    async function fetchExperiences() {
+      const { data } = await supabase
+        .from('experiences')
+        .select('*')
+        .order('sort_order', { ascending: true })
+        .order('start_date', { ascending: false })
+
+      if (data) {
+        const mapped = data.map(exp => {
+          const startYear = exp.start_date ? new Date(exp.start_date).getFullYear() : ''
+          const endYear = exp.is_current ? 'Present' : (exp.end_date ? new Date(exp.end_date).getFullYear() : '')
+          
+          let yearStr = `${startYear}`
+          if (endYear && startYear !== endYear) {
+            yearStr += ` – ${endYear}`
+          }
+
+          return {
+            ...exp,
+            year: yearStr,
+            org: exp.organization,
+            isCurrent: exp.is_current
+          }
+        })
+        setExperiences(mapped)
+      }
+    }
+    fetchExperiences()
+  }, [])
+
   return (
     <section
       id="experience"
