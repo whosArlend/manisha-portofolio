@@ -5,6 +5,15 @@ import { fadeUp, staggerContainer, viewportConfig, imageZoom } from '../utils/an
 import { supabase } from '../lib/supabase'
 import { getImageUrl } from '../lib/storage'
 
+type Project = {
+  id: number;
+  title: string;
+  category: string;
+  description: string | null;
+  image: string | null;
+  project_link: string | null;
+};
+
 const categories = ['All', 'Graphic Design', 'Social Media Design', 'Video Design', 'Other']
 const INITIAL_COUNT = 6
 
@@ -17,7 +26,7 @@ const getNormalizedLink = (link: string | undefined | null) => {
 }
 
 export default function Works() {
-  const [projects, setProjects] = useState<any[]>([])
+  const [projects, setProjects] = useState<Project[]>([])
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
@@ -268,6 +277,11 @@ export default function Works() {
                   <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>
                     {project.category}
                   </p>
+                  {project.description && (
+                    <p style={{ fontSize: '0.70rem', color: 'var(--text-secondary)', marginTop: '0.15rem', opacity: 0.85 }}>
+                      {project.description}
+                    </p>
+                  )}
                 </div>
               </motion.article>
             ))}
